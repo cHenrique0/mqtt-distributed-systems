@@ -1,4 +1,4 @@
-MQTT - Message Queuing Telemetry Transport
+# MQTT - Message Queuing Telemetry Transport
 
 A small project that simulates a residencial automation using the mqtt protocol made as homework of the discipline of Distributed Systems at UFMA.  
 
