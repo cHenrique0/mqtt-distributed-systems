@@ -46,7 +46,7 @@ def drop_table(database: sqlite3.Connection, table: str) -> None:
 
     with database:
         cursor = database.cursor()
-        cursor.execute(f"DROP TABLE {table.capitalize()}")
+        cursor.execute(f"DROP TABLE IF EXISTS {table.capitalize()}")
 
 
 def insert(database: sqlite3.Connection, table: str, values: list) -> None:
