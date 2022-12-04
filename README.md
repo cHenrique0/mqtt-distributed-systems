@@ -39,13 +39,14 @@ pip install -r requirements.txt
 #### 3. Install the mosquitto broker
 
 For instructions on how to install the broker: [Mosquitto download](https://mosquitto.org/download/)
+***If you are using Windows, you may need to restart your system for the installation to work.***
 
 #### 4. Running
 ```sh
-# Run the publisher
+# Open a terminal and run the publisher
 python pub.py
 
-# Run the subscriber
+# In another terminal run the subscriber
 python sub.py
 ```
 
