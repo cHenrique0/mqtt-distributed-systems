@@ -32,7 +32,7 @@ def create_table(database: sqlite3.Connection) -> None:
         # cursor.execute(
         #     f"CREATE TABLE IF NOT EXISTS {table.capitalize()}({columns[0]} VARCHAR(10) PRIMARY KEY, {columns[1]} TEXT, {columns[2]} TEXT, {columns[3]} FLOAT, {columns[4]} DATETIME)")
         cursor.execute(
-            "CREATE TABLE IF NOT EXISTS Sensor(id VARCHAR(10) PRIMARY KEY, area TEXT, sensor_type TEXT, value FLOAT, created_at DATETIME)")
+            "CREATE TABLE IF NOT EXISTS Sensors(id VARCHAR(10) PRIMARY KEY, area TEXT, sensor_type TEXT, value FLOAT, created_at DATETIME)")
 
 
 def insert(database: sqlite3.Connection, table: str, values: list) -> None:
