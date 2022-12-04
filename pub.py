@@ -101,5 +101,5 @@ while True:
            lvl_sensor.get_value(), lvl_sensor.get_id()])
     payload = pack('>H', lvl_sensor.get_value())
     clients["level_client"].publish(lvl_sensor.get_topic(), payload, qos=0)
-    print(f"{lvl_sensor.get_topic()}/{lvl_sensor.get_value()}")
+    print(f"{lvl_sensor.get_topic()}/{lvl_sensor.get_value()}\n")
     sleep(5)
