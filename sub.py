@@ -48,11 +48,11 @@ def on_connect(client, data, flags, status, rc):
 
     # Creating the topics to subscribe
     # Reading all publish in area: bedroom
-    BEDROOM = f"area/{temp_sensor[1]}/sensor/{temp_sensor[0]}/#"
+    bedroom = f"area/{temp_sensor[1]}/sensor/{temp_sensor[0]}/#"
     # Reading all publish in area: garden
-    GARDEN = f"area/{hum_sensor[1]}/sensor/{hum_sensor[0]}/#"
+    garden = f"area/{hum_sensor[1]}/sensor/{hum_sensor[0]}/#"
     # Reading all publish in area: pool
-    POOL = f"area/{lvl_sensor[1]}/sensor/{lvl_sensor[0]}/#"
+    pool = f"area/{lvl_sensor[1]}/sensor/{lvl_sensor[0]}/#"
 
     print("Connected to MQTT broker")
 
@@ -65,19 +65,19 @@ def on_connect(client, data, flags, status, rc):
 
     # Subscribing to the topic according to the user's choice
     if answer == 1:
-        print(f"Subscribing to: \n* [{BEDROOM}]")
-        client.subscribe(BEDROOM)
+        print(f"Subscribing to: \n* [{bedroom}]")
+        client.subscribe(bedroom)
     elif answer == 2:
-        print(f"Subscribing to: \n* [{GARDEN}]")
-        client.subscribe(GARDEN)
+        print(f"Subscribing to: \n* [{garden}]")
+        client.subscribe(garden)
     elif answer == 3:
-        print(f"Subscribing to: \n* [{POOL}]")
-        client.subscribe(POOL)
+        print(f"Subscribing to: \n* [{pool}]")
+        client.subscribe(pool)
     elif answer == 4:
-        print(f"Subscribing to: \n* [{BEDROOM}]\n* [{GARDEN}]\n* [{POOL}]")
-        client.subscribe(BEDROOM)
-        client.subscribe(GARDEN)
-        client.subscribe(POOL)
+        print(f"Subscribing to: \n* [{bedroom}]\n* [{garden}]\n* [{pool}]")
+        client.subscribe(bedroom)
+        client.subscribe(garden)
+        client.subscribe(pool)
 
     print("\nMonitoring:\n")
 
