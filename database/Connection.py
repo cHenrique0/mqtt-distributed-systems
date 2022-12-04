@@ -68,13 +68,15 @@ def insert(database: sqlite3.Connection, table: str, values: list) -> None:
         cursor.execute(query, values)
 
 
-def select(database: sqlite3.Connection, table: str) -> list:
+def select(database: sqlite3.Connection, table: str, where: dict[str, str] = None) -> list:
     """
     Select data from a table.
 
     Args:
         database (sqlite3.Connection): the database connection
         table (str): the name of the table to select data
+        where (dict[str, str], optional): a dictionary of conditions to filter the
+                                          data. Defaults to None.
 
     Returns:
         list: a list of tuples with the data
@@ -84,8 +86,21 @@ def select(database: sqlite3.Connection, table: str) -> list:
 
     with database:
         cursor = database.cursor()
-        cursor.execute(f"SELECT * FROM {table.capitalize()}")
+
+        query = f"SELECT * FROM {table.capitalize()}"
+
+        if where is not None:
+            for key, value in where.items():
+                query = f"SELECT * FROM {table.capitalize()} WHERE {key} = '{value}'"
+
+        cursor.execute(query)
+
         rows = cursor.fetchall()
+
+        if len(rows) == 1:
+            for item in rows:
+                datas = list(item).copy()
+            return datas
 
         for data in rows:
             datas.append(data)
