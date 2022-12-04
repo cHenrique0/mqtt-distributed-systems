@@ -91,12 +91,12 @@ def on_message(client, data, msg):
 
 
 # Create a client to supervise
-client = mqtt.Client(client_id="SCADA", protocol=mqtt.MQTTv5)
-client.on_connect = on_connect
-client.on_message = on_message
+mqtt_client = mqtt.Client(client_id="SCADA", protocol=mqtt.MQTTv5)
+mqtt_client.on_connect = on_connect
+mqtt_client.on_message = on_message
 
 # Connect to MQTT broker
-client.connect(HOST, PORT)
+mqtt_client.connect(HOST, PORT)
 
 # Start the loop
-client.loop_forever()
+mqtt_client.loop_forever()
