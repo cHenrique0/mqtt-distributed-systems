@@ -91,7 +91,8 @@ def on_message(client, data, msg):
 
 
 # Create a client to supervise
-mqtt_client = mqtt.Client(client_id="SCADA", protocol=mqtt.MQTTv5)
+client_name = input("type the client name: ").strip().upper()
+mqtt_client = mqtt.Client(client_id=client_name, protocol=mqtt.MQTTv5)
 mqtt_client.on_connect = on_connect
 mqtt_client.on_message = on_message
 
