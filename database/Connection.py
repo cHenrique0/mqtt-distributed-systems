@@ -35,6 +35,20 @@ def create_table(database: sqlite3.Connection) -> None:
             "CREATE TABLE IF NOT EXISTS Sensors(id VARCHAR(10) PRIMARY KEY, area TEXT, sensor_type TEXT, value FLOAT, created_at DATETIME)")
 
 
+def drop_table(database: sqlite3.Connection, table: str) -> None:
+    """
+    Drop a table in the database.
+
+    Args:
+        database (sqlite3.Connection): the database connection
+        table (str): the name of the table to drop
+    """
+
+    with database:
+        cursor = database.cursor()
+        cursor.execute(f"DROP TABLE {table.capitalize()}")
+
+
 def insert(database: sqlite3.Connection, table: str, values: list) -> None:
     """
     Insert data into a table.
