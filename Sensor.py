@@ -26,3 +26,13 @@ class Sensor:
 
     def get_topic(self) -> str:
         return self.__topic
+
+    def __str__(self) -> str:
+        info = f"""+{(len(self.__sensor_type)+13)*"-"}+
+  * Sensor: {self.__sensor_type}
+  * ID: {self.__id}
+  * Area: {self.__area}
+  * Last measure: {self.__value}
++{(len(self.__sensor_type)+13)*"-"}+\n"""
+
+        return info
