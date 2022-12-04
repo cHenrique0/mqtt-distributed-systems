@@ -1,3 +1,4 @@
+from enum import Enum
 from nanoid import generate
 
 
@@ -36,3 +37,12 @@ class Sensor:
 +{(len(self.__sensor_type)+13)*"-"}+\n"""
 
         return info
+
+
+class SENSORS(Enum):
+    TEMPERATURE = "temperature"
+    HUMIDITY = "humidity"
+    LEVEL = "level"
+
+    def lower(self) -> str:
+        return self.value.lower()
